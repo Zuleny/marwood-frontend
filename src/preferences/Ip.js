@@ -1,6 +1,6 @@
 
 export default class Ip{   
     static getHost(){
-        return ("http://localhost:4000");
+        return ("http://54.232.175.236:4005");
     }
 }
