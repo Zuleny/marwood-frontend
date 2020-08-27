@@ -173,17 +173,17 @@ export default class Menu extends Component {
                 </ul>
               </li>
               <li className="nav-item">
-                <a href="#" className="nav-link">
+                <Link to="/admin-sales_report" className="nav-link">
                   <i className="fas fa-circle nav-icon" />
-                  <p>Cupon de Descuento</p>
-                </a>
+                  <p>Reportes de Ventas</p>
+                </Link>
               </li>
               
               <li className="nav-item">
-                <a href="#" className="nav-link">
+                <Link to="/admin-sales_date_report" className="nav-link">
                   <i className="fas fa-circle nav-icon" />
-                  <p>Facturas</p>
-                </a>
+                  <p>Reporte De Pedidos</p>
+                </Link>
               </li>
               <li className="nav-item">
                 <a href="#" className="nav-link">

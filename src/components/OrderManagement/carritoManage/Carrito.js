@@ -89,6 +89,10 @@ export default class Carrito extends Component {
     }
 
     getMenu(){
+        var checkout = <Link className="nav-link text-bold" to="/order">CHECK OUT  <i class="fas fa-arrow-right"></i></Link>;
+        if(this.state.carrito.length<1){
+            checkout=<Link className="nav-link text-bold disabled" to="/order">CHECK OUT  <i class="fas fa-arrow-right"></i></Link>
+        }
         return <div className="content" id="content-shopping">
             <br></br><br></br>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -102,11 +106,11 @@ export default class Carrito extends Component {
                             <Link className="nav-link text-bold" to="/shopping-cart">SHOPPING CART  <i class="fas fa-arrow-right"></i><span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-bold" to="/order">CHECK OUT  <i class="fas fa-arrow-right"></i></Link>
+                            {checkout}
                         </li>
                         
                         <li className="nav-item">
-                            <a className="nav-link text-bold" href="#">ORDER COMPLETE</a>
+                            <Link className="nav-link text-bold disabled" to="#/">ORDER COMPLETE</Link>
                         </li>
                         </ul>
                         

@@ -45,7 +45,7 @@ export default class Order extends Component {
         }else{
           alert("Hubo un error! Intente nuevamente");
         }
-        await this.getDataProductList()
+        await this.getDataOrderList();
     };
 
     async handlerButtonAction(orderNo){
@@ -74,6 +74,7 @@ export default class Order extends Component {
             }
             
             let discount = (ele.total_shopping_cart*ele.discount)/100;
+            discount = discount.toFixed(2);
             let deliveryArea = parseInt(ele.price_delivery_area);
   
             return(
@@ -84,9 +85,9 @@ export default class Order extends Component {
                 <td>{ele.name}</td>
                 <td>{ele.total_shopping_cart}</td>
                 <td>{discount}</td>
-                <td>{ele.total_shopping_cart-discount}</td>
+                <td>{(ele.total_shopping_cart-discount).toFixed(2)}</td>
                 <td>{deliveryArea}</td>
-                <td><span className="badge badge-success">{ele.total_shopping_cart-discount+deliveryArea}</span></td>
+                <td><span className="badge badge-success">{(ele.total_shopping_cart-discount+deliveryArea).toFixed(2)}</span></td>
                 <td>
                     <select className="form-control" value={option}>
                         <option value="0">Cancelado</option>
@@ -95,7 +96,7 @@ export default class Order extends Component {
                     </select>
                 </td>
                 <td>
-                  <button className="btn btn-sm btn-success" title="Gestionar Factura" onClick={() => this.handlerButtonAction(ele.nro_order)}>
+                  <button className="btn btn-sm btn-success" onClick={() => this.handlerButtonAction(ele.nro_order)}>
                     <i class="far fa-save" title="Ver Factura"></i>
                   </button>
                   <a type="button" className="btn btn-sm btn-primary" title="Imprimir Factura" href={`${Ip.getHost()}/pdf/${this.state.invoice_no}`}>

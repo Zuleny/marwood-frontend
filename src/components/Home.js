@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import Header from "../partials/client/Header";
 import AsideRigth from "../partials/client/AsideRigth";
 import Footer from "../partials/client/Footer";
+import {PRODUCT_LIST} from '../config/Const';
 
 export default class Home extends Component {
     
@@ -62,5 +63,17 @@ export default class Home extends Component {
 
             </div>
         )
+    }
+
+    state={
+        carrito:this.getCarrito()
+    }
+
+    getCarrito(){
+        if(!localStorage.getItem(PRODUCT_LIST)){
+            var list=[];
+            localStorage.setItem(PRODUCT_LIST, JSON.stringify(list));
+        }
+        return JSON.parse(localStorage.getItem(PRODUCT_LIST));
     }
 }

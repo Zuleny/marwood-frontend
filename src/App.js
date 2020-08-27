@@ -31,6 +31,7 @@ import SalesReport from "./components/OrderManagement/orderManage/SalesReport";
 import SaleReportDate from "./components/OrderManagement/orderManage/SaleReportDate";
 import Shipping from "./components/OrderManagement/shippingManage/Shipping";
 import Order from "./components/OrderManagement/orderManage/Order";
+import OrderComplete from "./components/OrderManagement/orderManage/OrderComplete";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
         <Route path="/contact" exact component={Contact}></Route>
         <Route path="/shopping-cart" exact component={Carrito}></Route>
         <Route path="/order" exact component={Shipping}></Route>
+        <Route path="/order-complete/:id" exact component={OrderComplete}></Route>
         <Route path="/admin" exact component={Index}></Route>
         <Route path="/admin-user-all" exact component={User}></Route>
         <Route path="/admin-user-signup" exact component={SignUpAdmin}></Route>
@@ -65,7 +67,6 @@ function App() {
       </Router>
     </div>
   );
-  
 }
 
 export default App;

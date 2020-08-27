@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {CLIENT_DATA, PRODUCT_LIST} from '../../config/Const';
 
 export default class Navigation extends Component {
@@ -132,9 +132,11 @@ export default class Navigation extends Component {
   getQuantityProducts(){
     var listProducts= JSON.parse(localStorage.getItem(PRODUCT_LIST));
     var quantity =0;
-    listProducts.forEach(element => {
-      quantity= quantity+element.quantity
-    });
+    if(listProducts){
+      listProducts.forEach(element => {
+        quantity= quantity+element.quantity
+      });
+    }
     return quantity;
   }
 

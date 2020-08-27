@@ -40,7 +40,7 @@ export default class SaleReportDate extends Component {
                 labels: arrayDate,
                 datasets: [
                     {
-                        label: "Cantidad de Ventas de los ultimos Días",
+                        label: "Cantidad de Pedidos Completados, Por Fecha",
                         data: arrayCount, //[2,3,9,5,5,6,2,1],
                         backgroundColor : arrayColor,
                     }
@@ -76,7 +76,7 @@ export default class SaleReportDate extends Component {
                 <div className="card card-outline card-success" id="cardContentMain">
                     <div className="card-header">
                         <h4 className="card-title text-green text-bold">
-                        Reporte de Ventas de los últimos dias
+                        Reporte de Pedidos
                         </h4>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>

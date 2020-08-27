@@ -76,7 +76,7 @@ export default class SalesReport extends Component {
                 <div className="card card-outline card-success" id="cardContentMain">
                     <div className="card-header">
                         <h4 className="card-title text-green text-bold">
-                        Reporte de Ventas por día
+                        Reporte de Ventas de Muebles
                         </h4>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>

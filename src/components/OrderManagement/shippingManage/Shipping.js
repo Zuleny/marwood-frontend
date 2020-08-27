@@ -72,8 +72,8 @@ export default class Shipping extends Component {
     }
 
     getContent(){
-        
-        return (
+        if(JSON.parse(localStorage.getItem(CLIENT_DATA))){
+          return (
             <div className="content-wrapper">
                 <section className="content">
                     {this.getMenu()}
@@ -108,6 +108,26 @@ export default class Shipping extends Component {
                 </section>
             </div>
             );
+        }
+        return (
+          <div className="content-wrapper">
+              <section className="content">
+                  {this.getMenu()}
+                  <div className="container">
+                    <div className="jumbotron">
+                      <h1 className="display-4">PARA SEGUIR, PRIMERO DEBE INICIAR SESION!</h1>
+                      <p className="lead">Gracias Por su Preferencia</p>
+                      <hr className="my-4" />
+                      <p className="lead">
+                          <Link className="btn btn-success" to="/login" role="button">Iniciar Sesion</Link>
+                      </p>
+                    </div>
+
+                  </div>
+              </section>
+          </div>
+          );
+        
     }
 
     getMenu(){
@@ -124,11 +144,11 @@ export default class Shipping extends Component {
                             <Link className="nav-link text-bold" to="/shopping-cart">SHOPPING CART  <i class="fas fa-arrow-right"></i><span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item active">
-                            <a className="nav-link text-bold" href="#">CHECK OUT  <i class="fas fa-arrow-right"></i></a>
+                            <Link className="nav-link text-bold" to="/order">CHECK OUT  <i class="fas fa-arrow-right"></i></Link>
                         </li>
                         
                         <li className="nav-item">
-                            <a className="nav-link text-bold" href="#">ORDER COMPLETE</a>
+                            <Link className="nav-link text-bold disabled" to="/#">ORDER COMPLETE</Link>
                         </li>
                         </ul>
                         
@@ -359,8 +379,8 @@ export default class Shipping extends Component {
       var res = await axios.post(route, order);
       res = res.data;
       if(res>0){
-        alert(`Usuario ${res} creado Exitosamente`);
-        window.location.href="/login"
+        localStorage.removeItem(PRODUCT_LIST);
+        window.location.href=`/order-complete/${res}`;
       }else{
         alert(`Usuario no registrado! Intente nuevamente`);
       }
